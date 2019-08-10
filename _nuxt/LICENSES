@@ -41,6 +41,8 @@
  * Released under the MIT License.
  */
 
+/*! SKPlayer */
+
 /**
  * Checks if an event is supported in the current execution environment.
  *
