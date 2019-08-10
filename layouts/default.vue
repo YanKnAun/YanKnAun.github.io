@@ -5,6 +5,7 @@
       :showAuth.sync="showAuth"
       @signout="signout"
       @search="search" />
+      <Wht />
     <main>
       <nuxt />
     </main>
@@ -15,6 +16,7 @@
 <script>
 import Header from '@/components/Header'
 import Auth from '@/components/Auth'
+import Wht from '@/components/wht'
 import { mapState, mapActions, mapMutations } from 'vuex'
 
 export default {
@@ -28,7 +30,8 @@ export default {
   },
   components: {
     Header,
-    Auth
+    Auth,
+    Wht
   },
   async created () {
     const token = localStorage.getItem('github_token')

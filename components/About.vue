@@ -1,17 +1,15 @@
 <template>
   <div class="about">
     <section class="about-contact">
-      <a href="https://github.com/jrainlau">Github</a>
+      <a href="https://github.com/YanKnAun">Github</a>
       ·
-      <a href="mailto:jrainlau@gmail.com">Email</a>
-      ·
-      <a href="https://www.instagram.com/jrainlau/">Instagram</a>
+      <a href="mailto:758915673@qq.com">Email</a>
       ·
       懶得備案
     </section>
 
     <section class="about-right">
-      © 2019 JRAIN LAU
+      © 2019 YAN
     </section>
   </div>
 </template>

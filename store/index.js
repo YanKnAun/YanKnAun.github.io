@@ -3,9 +3,7 @@ import { GetArticles, GetUserInfo } from './gglQueries'
 
 const API_DOMAIN = 'https://api.github.com'
 const REPO_URL = `${API_DOMAIN}/repos/YanKnAun/YanKnAun.github.io`
-// const SERVER = 'https://api.jrainlau.now.sh/github'
 const MY_TOKEN = "MWNlNzU4MjgyZDc1ZjZhZTAzODExNmE0MmE4NDYzMWQ5M2Q2OWQ3OA=="
-// const SERVER = 'http://localhost:3000/github'
 
 export default {
   state: {

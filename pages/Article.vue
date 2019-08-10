@@ -90,7 +90,7 @@ export default {
     }
   },
   async mounted () {
-    document.title = this.$route.query.title ? this.$route.query.title + ' | JRAIN:BLOG' : 'JRAIN:BLOG'
+    document.title = this.$route.query.title ? this.$route.query.title + ' | YAN:BLOG' : 'YAN:BLOG'
     this.articleNumber = this.$route.query.number
     if (!this.article) {
       const result = await this.getArticlByNumber(this.articleNumber)
