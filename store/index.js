@@ -4,7 +4,7 @@ import { GetArticles, GetUserInfo } from './gglQueries'
 const API_DOMAIN = 'https://api.github.com'
 const REPO_URL = `${API_DOMAIN}/repos/YanKnAun/YanKnAun.github.io`
 // const SERVER = 'https://api.jrainlau.now.sh/github'
-const MY_TOKEN = '385657f4939a9487577f1d5ad18de0c855718ba1'
+const MY_TOKEN = "MWNlNzU4MjgyZDc1ZjZhZTAzODExNmE0MmE4NDYzMWQ5M2Q2OWQ3OA=="
 // const SERVER = 'http://localhost:3000/github'
 
 export default {
@@ -224,7 +224,7 @@ export default {
         success: true,
         code: 0,
         result: {
-          access_token: MY_TOKEN
+          access_token: atob(MY_TOKEN)
         }
       }
       return data
