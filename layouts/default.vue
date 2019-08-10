@@ -9,6 +9,7 @@
     <main>
       <nuxt />
     </main>
+    <Skplayer :userInfo="userInfo" />
     <Auth :showAuth.sync="showAuth" />
   </div>
 </template>
@@ -17,6 +18,7 @@
 import Header from '@/components/Header'
 import Auth from '@/components/Auth'
 import Wht from '@/components/wht'
+import Skplayer from '@/components/skplayer'
 import { mapState, mapActions, mapMutations } from 'vuex'
 
 export default {
@@ -31,7 +33,8 @@ export default {
   components: {
     Header,
     Auth,
-    Wht
+    Wht,
+    Skplayer
   },
   async created () {
     const token = localStorage.getItem('github_token')

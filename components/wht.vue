@@ -6,7 +6,7 @@
         <div class="out_left"><img src="https://yanbucket-1258438600.cos.ap-guangzhou.myqcloud.com/4.jpg" class="pic"></div>
         <div class="out_right"><img src="https://yanbucket-1258438600.cos.ap-guangzhou.myqcloud.com/6.jpg" class="pic"></div>
         <div class="out_top"><img src="https://yanbucket-1258438600.cos.ap-guangzhou.myqcloud.com/7.jpg" class="pic"></div>
-        <div class="out_bottom"><img src="https://yanbucket-1258438600.cos.ap-guangzhou.myqcloud.com/sy.jpg" class="pic">
+        <div class="out_bottom"><img src="https://yanbucket-1258438600.cos.ap-guangzhou.myqcloud.com/HTB1YDuPX1P2gK0jSZFoq6yuIVXaa.jpg" class="pic">
         </div>
     </div>
   </div>

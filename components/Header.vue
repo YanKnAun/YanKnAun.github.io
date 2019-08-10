@@ -2,7 +2,7 @@
   <header>
     <div class="header">
       <div class="header-logo">
-        <img :src="require('@/assets/imgs/logo-h.png')" @click="$router.push('/')">
+        <img :src="require('@/assets/imgs/logo-yan.png')" @click="$router.push('/')">
       </div>
       <div class="header-tools">
         <input type="text" class="header-tools-search" placeholder="Search" v-model="keyword" @keyup.enter="search">

@@ -5,7 +5,7 @@
       ·
       <a href="mailto:758915673@qq.com">Email</a>
       ·
-      懶得備案
+      xxxx
     </section>
 
     <section class="about-right">
@@ -20,6 +20,7 @@
 .about {
   cursor: default;
   margin-bottom: @gapOuter;
+  background-color: #ffffffc4;
   &-contact {
     color: @monorFontColor;
     margin-bottom: @gapInner;

@@ -189,12 +189,15 @@ export default {
 
 .article {
   width: 100%;
-  max-width: 935px;
+  max-width: 1080px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: calc(@gapOuter * 3) 0 @gapOuter 0;
+  // padding: calc(@gapOuter * 3) 0 @gapOuter 0;
+  padding: 25px 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   box-sizing: border-box;
   background: #fff;
   &-title {
