@@ -23,13 +23,18 @@ export default {
   ** Global CSS
   */
   css: [
-    'element-ui/lib/theme-chalk/index.css'
+    'element-ui/lib/theme-chalk/index.css',
+    '@fortawesome/fontawesome-free/css/all.min.css',
+    'highlight.js/styles/github.css',
+    '@/assets/style/markdown.less',
+    '@/assets/style/reset.less'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/element-ui'
+    '@/plugins/element-ui',
+    '@/plugins/axios'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -40,12 +45,19 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/axios'
   ],
   /*
   ** Build configuration
   */
   build: {
     transpile: [/^element-ui/],
+    loader:[
+      {
+        test: /\.less$/,
+        loader: 'style-loader!css-loader!less-loader'
+      }
+    ],
     /*
     ** You can extend webpack config here
     */
@@ -53,7 +65,7 @@ export default {
     }
   },
 
-  router: {
-    base: '/blog/'
-  }
+  // router: {
+  //   base: '/blog/'
+  // }
 }

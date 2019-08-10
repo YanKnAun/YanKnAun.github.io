@@ -1,7 +1,7 @@
 export const GetArticles = (nextPage) => `
 {
-  repository(owner: "jrainlau", name: "jrainlau.github.io") {
-    issues(${nextPage} filterBy: {createdBy: "jrainlau",states: OPEN}, orderBy: {field: CREATED_AT, direction: DESC}, first: 100) {
+  repository(owner: "YanKnAun", name: "YanKnAun.github.io") {
+    issues(${nextPage} filterBy: {createdBy: "YanKnAun",states: OPEN}, orderBy: {field: CREATED_AT, direction: DESC}, first: 100) {
       pageInfo {
         hasNextPage
         endCursor

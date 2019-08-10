@@ -2,8 +2,9 @@
 import { GetArticles, GetUserInfo } from './gglQueries'
 
 const API_DOMAIN = 'https://api.github.com'
-const REPO_URL = `${API_DOMAIN}/repos/jrainlau/jrainlau.github.io`
-const SERVER = 'https://api.jrainlau.now.sh/github'
+const REPO_URL = `${API_DOMAIN}/repos/YanKnAun/YanKnAun.github.io`
+// const SERVER = 'https://api.jrainlau.now.sh/github'
+const MY_TOKEN = '385657f4939a9487577f1d5ad18de0c855718ba1'
 // const SERVER = 'http://localhost:3000/github'
 
 export default {
@@ -17,7 +18,6 @@ export default {
       const tl = {}
       articles.forEach(article => {
         const date = article.date.replace(/-\d{1,2}$/, '')
-        console.log(date)
         if (!tl[date]) {
           tl[date] = []
         }
@@ -54,15 +54,15 @@ export default {
       state.articles = articles
     },
     ADD_ARTICLES (state, articles) {
-      Vue.set(state, 'articles', state.articles.concat(articles))
+      state.article = state.articles.concat(articles)
     },
     GET_USER_INFO (state, info) {
-      Vue.set(state, 'userInfo', info)
+      state.userInfo = info
     },
     GET_COMMENTS (state, { commentsUrl, comments }) {
       state.articles.forEach(article => {
         if (article.commentsUrl === commentsUrl) {
-          Vue.set(article, 'comments', comments)
+          article.comments = comments
         }
       })
     },
@@ -72,7 +72,7 @@ export default {
     UPDATE_REACTIONS (state, { reactions, number }) {
       state.articles.forEach(article => {
         if (+article.number === +number) {
-          Vue.set(article, 'praise', reactions.filter(re => re.content === '+1'))
+          article.praise = reactions.filter(re => re.content === '+1')
         }
       })
     }
@@ -80,13 +80,15 @@ export default {
   actions: {
     async getArticlesV4 ({ commit, dispatch }, nextCursor) {
       const nextPage = nextCursor ? `after:"${nextCursor}",` : ''
-      const { status, data } = await this.$axios.$post(`${API_DOMAIN}/graphql`,
-        {
-          query: GetArticles(nextPage)
-        }
-      )
-      if (status < 400) {
-        const articles = data.data.repository.issues.nodes.map(article => ({
+      try {
+        const res = await this.$axios.$post(`${API_DOMAIN}/graphql`,
+          {
+            query: GetArticles(nextPage)
+          }
+        )
+        const data = res.data
+
+        const articles = data.repository.issues.nodes.map(article => ({
           title: article.title,
           content: article.body,
           cover: article.body.match(/!\[.+?\]\((.+?[^)]*)\)/)[1],
@@ -97,20 +99,23 @@ export default {
           commentsAmount: article.comments.totalCount,
           reactions: article.reactions.totalCount
         }))
+
         if (nextCursor) {
           commit('ADD_ARTICLES', articles)
         } else {
           commit('GET_ARTICLES', articles)
         }
-        const { hasNextPage, endCursor } = data.data.repository.issues.pageInfo
+        const { hasNextPage, endCursor } = data.repository.issues.pageInfo
         if (hasNextPage) {
           await dispatch('getArticlesV4', endCursor)
         }
         return true
-      } else {
+
+      } catch (error) {
         return {
-          status,
-          message: data.message
+          status: '401',
+          documentation_url: 'https://developer.github.com/v3/#authentication',
+          message: 'This endpoint requires you to be authenticated.'
         }
       }
     },
@@ -147,6 +152,7 @@ export default {
       if (status < 400) {
         commit('GET_USER_INFO', data.data.viewer)
       }
+
       return {
         status,
         data
@@ -207,12 +213,20 @@ export default {
       dispatch('getReactions', { number, autoCommit: true })
     },
     async githubAuth (_, code) {
-      const { data } = await this.$axios({
-        url: SERVER,
-        data: {
-          code
+      // const { data } = await this.$axios.$get({
+      //   url: SERVER,
+      //   data: {
+      //     code
+      //   }
+      // }).catch(e => e)
+      const data = {
+        error: null,
+        success: true,
+        code: 0,
+        result: {
+          access_token: MY_TOKEN
         }
-      }).catch(e => e)
+      }
       return data
     }
   }

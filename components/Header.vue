@@ -50,7 +50,7 @@ export default {
     })
     const authCode = location.search.split('code=')[1]
     if (authCode) {
-      const { data } = await this.githubAuth(authCode)
+      const data = await this.githubAuth(authCode)
       if (data.error) {
         swal.fire({
           type: 'error',
@@ -63,7 +63,7 @@ export default {
           }
         })
       } else {
-        localStorage.setItem('github_token', `Bearer ${data.access_token}`)
+        localStorage.setItem('github_token', `Bearer ${data.result.access_token}`)
         location.href = location.href.split(/[?#]/)[0]
       }
     }
@@ -82,7 +82,7 @@ export default {
       this.keyword = ''
     },
     loginWithGithub () {
-      location.href = 'https://github.com/login/oauth/authorize?client_id=Iv1.371000f912198076&redirect_uri=https://jrainlau.github.io'
+      location.href = 'https://github.com/login/oauth/authorize?client_id=fde03693c9f701545b11&redirect_uri=https://yanknaun.github.io'
     }
   }
 }

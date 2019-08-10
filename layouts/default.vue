@@ -1,55 +1,64 @@
 <template>
-  <div>
-    <nuxt />
+  <div id="app">
+    <Header
+      :userInfo="userInfo"
+      :showAuth.sync="showAuth"
+      @signout="signout"
+      @search="search" />
+    <main>
+      <nuxt />
+    </main>
+    <Auth :showAuth.sync="showAuth" />
   </div>
 </template>
 
-<style>
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
+<script>
+import Header from '@/components/Header'
+import Auth from '@/components/Auth'
+import { mapState, mapActions, mapMutations } from 'vuex'
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
+export default {
+  data () {
+    return {
+      showAuth: false
+    }
+  },
+  computed: {
+    ...mapState(['userInfo'])
+  },
+  components: {
+    Header,
+    Auth
+  },
+  async created () {
+    const token = localStorage.getItem('github_token')
+    if (token) {
+      this.getUserInfo(token)
+    }
+  },
+  methods: {
+    ...mapActions(['getArticles', 'getUserInfo']),
+    ...mapMutations(['GET_USER_INFO', 'UPDATE_KEYWORD']),
+    signout () {
+      localStorage.removeItem('github_token')
+      this['GET_USER_INFO']({})
+    },
+    search (keyword) {
+      this.$router.push('/')
+      this['UPDATE_KEYWORD'](keyword)
+    }
+  }
 }
+</script>
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+<style lang="less">
+#app {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  main {
+    width: 100%;
+    height: 100%;
+  }
 }
 </style>
