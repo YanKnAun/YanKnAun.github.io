@@ -1,13 +1,13 @@
 <template>
   <div class="timeline border">
     <h3 class="timeline-title">Timeline</h3>
-
-    <div class="timeline-item" v-for="(time, i) in Object.keys(timeline)" :key="i">
-      <div class="timeline-item-date" @click="showDetail(time)">{{time}} ({{timeline[time].length}})</div>
-      <ul class="timeline-item-day" v-show="onShowTime === time">
-        <li class="article" v-for="(article, i) in timeline[time]" :key="i" @click="$emit('toArticle', { number: article.number, title: article.title })">{{article.title}}</li>
-      </ul>
-    </div>
+    <el-collapse v-model="activeName">
+      <el-collapse-item v-for="(time, i) in Object.keys(timeline)" :key="i" :title="getTime(time , timeline)" name="1" class="timeline-item">
+        <ul class="timeline-item-day" v-show="onShowTime === time">
+          <li class="article" v-for="(article, i) in timeline[time]" :key="i" @click="$emit('toArticle', { number: article.number, title: article.title })">{{article.title}}</li>
+        </ul>
+      </el-collapse-item>
+    </el-collapse>
   </div>
 </template>
 
@@ -16,7 +16,11 @@ export default {
   props: ['timeline'],
   data () {
     return {
-      onShowTime: ''
+      onShowTime: '',
+      activeName: '1',
+      getTime(key, obj) {
+        return `${key} (${obj[key].length})`
+      }
     }
   },
   watch: {
@@ -64,13 +68,18 @@ export default {
     }
     &-day {
       padding-left: @gapOuter;
-      padding-top: @gapOuter;
       margin: 0;
+      list-style: upper-roman;
+      
       .article {
         padding-top: @gapInner;
         margin-bottom: @gapInner;
         text-decoration: underline;
         cursor: pointer;
+
+        &:hover {
+          color: @spanHoverColor;
+        }
       }
     }
   }
