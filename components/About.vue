@@ -9,7 +9,7 @@
     </section>
 
     <section class="about-right">
-      © 2019 YAN
+      Copyright © 2019 YAN
     </section>
   </div>
 </template>

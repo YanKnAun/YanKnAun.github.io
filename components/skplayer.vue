@@ -33,7 +33,7 @@ export default {
 		  });
     },
     initLive2D() {
-      L2Dwidget.init({"model":{"jsonPath":"model/aks/model.json"}})
+      L2Dwidget.init({"model":{"jsonPath":"/model/aks/model.json"}})
     }
   }
 }
