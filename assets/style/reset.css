@@ -13,10 +13,10 @@ body {
   overflow: hidden;
 }
 
-/* body {
+body {
   background-image: url(https://yanbucket-1258438600.cos.ap-guangzhou.myqcloud.com/background.png) !important;
   background-size: cover;
-} */
+}
 
 #__nuxt,#__layout {
   width: 100%;
