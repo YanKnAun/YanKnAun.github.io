@@ -1,12 +1,12 @@
 <template>
   <div class="wrap">
     <div class="cube">
-        <div class="out_front"><img src="	https://yanbucket-1258438600.cos.ap-guangzhou.myqcloud.com/2.jpeg" class="pic"></div>
-        <div class="out_back"><img src="https://yanbucket-1258438600.cos.ap-guangzhou.myqcloud.com/3.jpg" class="pic"></div>
-        <div class="out_left"><img src="https://yanbucket-1258438600.cos.ap-guangzhou.myqcloud.com/4.jpg" class="pic"></div>
-        <div class="out_right"><img src="https://yanbucket-1258438600.cos.ap-guangzhou.myqcloud.com/6.jpg" class="pic"></div>
-        <div class="out_top"><img src="https://yanbucket-1258438600.cos.ap-guangzhou.myqcloud.com/7.jpg" class="pic"></div>
-        <div class="out_bottom"><img src="https://yanbucket-1258438600.cos.ap-guangzhou.myqcloud.com/HTB1YDuPX1P2gK0jSZFoq6yuIVXaa.jpg" class="pic">
+        <div class="out_front"><img src="http://pw2shw8jf.bkt.clouddn.com/2.jpeg" class="pic"></div>
+        <div class="out_back"><img src="http://pw2shw8jf.bkt.clouddn.com/3.jpg" class="pic"></div>
+        <div class="out_left"><img src="http://pw2shw8jf.bkt.clouddn.com/4.jpg" class="pic"></div>
+        <div class="out_right"><img src="http://pw2shw8jf.bkt.clouddn.com/6.jpg" class="pic"></div>
+        <div class="out_top"><img src="http://pw2shw8jf.bkt.clouddn.com/7.jpg" class="pic"></div>
+        <div class="out_bottom"><img src="http://pw2shw8jf.bkt.clouddn.com/HTB1YDuPX1P2gK0jSZFoq6yuIVXaa.jpg" class="pic">
         </div>
     </div>
   </div>
