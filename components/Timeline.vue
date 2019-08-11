@@ -2,9 +2,9 @@
   <div class="timeline border">
     <h3 class="timeline-title">Timeline</h3>
     <el-collapse v-model="activeName">
-      <el-collapse-item v-for="(time, i) in Object.keys(timeline)" :key="i" :title="getTime(time , timeline)" name="1" class="timeline-item">
-        <ul class="timeline-item-day" v-show="onShowTime === time">
-          <li class="article" v-for="(article, i) in timeline[time]" :key="i" @click="$emit('toArticle', { number: article.number, title: article.title })">{{article.title}}</li>
+      <el-collapse-item v-for="(time, i) in Object.keys(timeline)" :key="i" :title="getTime(time , timeline)" :name="i + 1" class="timeline-item">
+        <ul class="timeline-item-day">
+          <li class="article" v-for="(article, j) in timeline[time]" :key="j" @click="$emit('toArticle', { number: article.number, title: article.title })">{{article.title}}</li>
         </ul>
       </el-collapse-item>
     </el-collapse>
@@ -16,26 +16,17 @@ export default {
   props: ['timeline'],
   data () {
     return {
-      onShowTime: '',
-      activeName: '1',
+      activeName: [1],
       getTime(key, obj) {
         return `${key} (${obj[key].length})`
       }
     }
   },
   watch: {
-    timeline (val) {
-      this.onShowTime = Object.keys(val)[0]
-    }
+
   },
   methods: {
-    showDetail (time) {
-      if (this.onShowTime === time) {
-        this.onShowTime = ''
-      } else {
-        this.onShowTime = time
-      }
-    }
+
   }
 }
 </script>
@@ -55,11 +46,14 @@ export default {
   }
 
   &-item {
-    padding: @gapOuter 0;
     margin: 0 @gapOuter;
     border-bottom: 1px solid @thirdBorderColor;
     color: @regularFontColor;
+    &:first-child {
+      padding-top: @gapOuter;
+    }
     &:last-child {
+      padding-bottom: @gapOuter;
       border-bottom: none;
     }
     &-date {
