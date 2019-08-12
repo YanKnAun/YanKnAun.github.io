@@ -82,7 +82,7 @@ export default {
       this.keyword = ''
     },
     loginWithGithub () {
-      location.href = 'https://github.com/login/oauth/authorize?client_id=fde03693c9f701545b11&redirect_uri=http://localhost:3000'
+      location.href = 'https://github.com/login/oauth/authorize?client_id=fde03693c9f701545b11&redirect_uri=https://yanknaun.github.io'
       // https://yanknaun.github.io
     }
   }

@@ -226,7 +226,9 @@ export const actions = {
       client_secret: 'b94ae609b2335da5e52acace175d028e98652008',
       code: code
     }).catch(e => e)
-    
+    console.log('=======debugger============')
+    console.log(data)
+    console.log('===========================')
     return data
   }
 }
