@@ -226,16 +226,14 @@ export const actions = {
       client_secret: 'b94ae609b2335da5e52acace175d028e98652008',
       code: code
     }).catch(e => e)
-    console.log('=======debugger============')
-    console.log(data)
     let obj = {}
-    const arr2 = arr1[1].split("&");
+    const arr2 = data.split("&");
     for(let i = 0; i < arr2.length; i++) {
       const res = arr2[i].split("=");
       obj[res[0]] = res[1];
     }
     console.log(obj)
-    console.log('===========================')
+
     return obj
   }
 }
