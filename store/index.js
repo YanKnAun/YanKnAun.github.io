@@ -213,14 +213,20 @@ export const actions = {
     dispatch('getReactions', { number, autoCommit: true })
   },
   async githubAuth (_, code) {
-    const data = {
-      error: null,
-      success: true,
-      code: 0,
-      result: {
-        access_token: atob(MY_TOKEN)
-      }
-    }
+    // const data = {
+    //   error: null,
+    //   success: true,
+    //   code: 0,
+    //   result: {
+    //     access_token: atob(MY_TOKEN)
+    //   }
+    // }
+    const data = await this.$axios.$post('https://github.com/login/oauth/access_token', {
+      client_id: 'fde03693c9f701545b11',
+      client_secret: 'b94ae609b2335da5e52acace175d028e98652008',
+      code: code
+    }).catch(e => e)
+    
     return data
   }
 }
