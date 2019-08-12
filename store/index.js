@@ -160,7 +160,7 @@ export const actions = {
   },
   async getComments (_, articleNumber) {
     const commentsUrl = `${REPO_URL}/issues/${articleNumber}/comments`
-    const { data: comments } = await this.$axios.$get(commentsUrl)
+    const comments = await this.$axios.$get(commentsUrl)
     // commit('GET_COMMENTS', { commentsUrl, comments })
     return comments
   },
@@ -232,7 +232,6 @@ export const actions = {
       const res = arr2[i].split("=");
       obj[res[0]] = res[1];
     }
-    console.log(obj)
 
     return obj
   }

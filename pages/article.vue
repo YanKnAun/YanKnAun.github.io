@@ -113,6 +113,7 @@ export default {
       autoCommit: true
     })
     this.comments = await this.getComments(this.articleNumber)
+    console.log(this.comments)
     this.$nextTick(() => {
       if (this.$route.query.comment) {
         const mainView = document.querySelector('.view')
