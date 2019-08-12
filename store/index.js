@@ -3,7 +3,7 @@ import { GetArticles, GetUserInfo } from './gglQueries'
 
 const API_DOMAIN = 'https://api.github.com'
 const REPO_URL = `${API_DOMAIN}/repos/YanKnAun/YanKnAun.github.io`
-const MY_TOKEN = "MWNlNzU4MjgyZDc1ZjZhZTAzODExNmE0MmE4NDYzMWQ5M2Q2OWQ3OA=="
+// const MY_TOKEN = "MWNlNzU4MjgyZDc1ZjZhZTAzODExNmE0MmE4NDYzMWQ5M2Q2OWQ3OA=="
 
 export const state = () => ({
   articles: [],
@@ -228,7 +228,14 @@ export const actions = {
     }).catch(e => e)
     console.log('=======debugger============')
     console.log(data)
+    let obj = {}
+    const arr2 = arr1[1].split("&");
+    for(let i = 0; i < arr2.length; i++) {
+      const res = arr2[i].split("=");
+      obj[res[0]] = res[1];
+    }
+    console.log(obj)
     console.log('===========================')
-    return data
+    return obj
   }
 }

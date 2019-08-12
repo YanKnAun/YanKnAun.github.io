@@ -63,7 +63,7 @@ export default {
           }
         })
       } else {
-        localStorage.setItem('github_token', `Bearer ${data.result.access_token}`)
+        localStorage.setItem('github_token', `Bearer ${data.access_token}`)
         location.href = location.href.split(/[?#]/)[0]
       }
     }
@@ -83,7 +83,6 @@ export default {
     },
     loginWithGithub () {
       location.href = 'https://github.com/login/oauth/authorize?client_id=fde03693c9f701545b11&redirect_uri=https://yanknaun.github.io'
-      // https://yanknaun.github.io
     }
   }
 }
