@@ -221,7 +221,7 @@ export const actions = {
     //     access_token: atob(MY_TOKEN)
     //   }
     // }
-    const data = await this.$axios.$post('https://github.com/login/oauth/access_token', {
+    const data = await this.$axios.$post('https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token', {
       client_id: 'fde03693c9f701545b11',
       client_secret: 'b94ae609b2335da5e52acace175d028e98652008',
       code: code
