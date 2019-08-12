@@ -221,9 +221,14 @@ export const actions = {
     //     access_token: atob(MY_TOKEN)
     //   }
     // }
+    // const data = await this.$axios.$post('https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token', {
+    //   client_id: 'fde03693c9f701545b11',
+    //   client_secret: 'b94ae609b2335da5e52acace175d028e98652008',
+    //   code: code
+    // }).catch(e => e)
     const data = await this.$axios.$post('https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token', {
-      client_id: 'fde03693c9f701545b11',
-      client_secret: 'b94ae609b2335da5e52acace175d028e98652008',
+      client_id: 'fcb06a95dcdfb0c9c5eb',
+      client_secret: '293bbe1d692e81bdb78ce3c2a8bf81c81c1a16f5',
       code: code
     }).catch(e => e)
     let obj = {}
