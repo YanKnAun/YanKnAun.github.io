@@ -70,5 +70,9 @@ export default {
 
   // router: {
   //   base: '/blog/'
-  // }
+  // },
+  server: {
+    port: 3000,
+    host: 'localhost', // default: localhost,
+  }
 }

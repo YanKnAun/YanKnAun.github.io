@@ -120,6 +120,9 @@ export default {
       padding-left: @gapOuter;
       cursor: pointer;
       font-size: 1.2rem;
+      &:hover {
+        color: @dangerColor;
+      }
       &.praised {
         color: @warningColor;
       }
