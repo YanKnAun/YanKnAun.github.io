@@ -33,7 +33,22 @@ export default {
 		  });
     },
     initLive2D() {
-      L2Dwidget.init({"model":{"jsonPath":"/model/aks/model.json"}})
+      L2Dwidget.init({
+        "model": {
+          "jsonPath": "/model/aks/model.json"
+        },
+        "display": {
+          "width": '120',
+          "height": '240'
+        },
+        "mobile": {
+          "show": false
+        },
+        "react": {
+          "opacityDefault": 0.9,
+          "opacityOnHover": 0.2
+        }
+      })
     }
   }
 }

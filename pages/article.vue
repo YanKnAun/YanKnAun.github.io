@@ -190,7 +190,7 @@ export default {
 
 .article {
   width: 100%;
-  max-width: 1080px;
+  max-width: 935px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
