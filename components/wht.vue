@@ -81,4 +81,10 @@
       }
     }
   }
+
+  @media only screen and (max-width: 450px) {
+    .wrap {
+      display: none;
+    }
+  }
 </style>

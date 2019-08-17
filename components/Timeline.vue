@@ -63,7 +63,7 @@ export default {
     &-day {
       padding-left: @gapOuter;
       margin: 0;
-      list-style: upper-roman;
+      list-style: decimal;
       
       .article {
         padding-top: @gapInner;
