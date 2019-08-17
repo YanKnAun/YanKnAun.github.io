@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import skPlayer from 'skPlayer'
+import skPlayer from 'skplayer'
 import { mapState } from 'vuex'
 
 export default {
