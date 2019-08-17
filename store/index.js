@@ -3,7 +3,6 @@ import { GetArticles, GetUserInfo } from './gglQueries'
 
 const API_DOMAIN = 'https://api.github.com'
 const REPO_URL = `${API_DOMAIN}/repos/YanKnAun/YanKnAun.github.io`
-// const MY_TOKEN = "MWNlNzU4MjgyZDc1ZjZhZTAzODExNmE0MmE4NDYzMWQ5M2Q2OWQ3OA=="
 
 export const state = () => ({
   articles: [],
@@ -213,24 +212,11 @@ export const actions = {
     dispatch('getReactions', { number, autoCommit: true })
   },
   async githubAuth (_, code) {
-    // const data = {
-    //   error: null,
-    //   success: true,
-    //   code: 0,
-    //   result: {
-    //     access_token: atob(MY_TOKEN)
-    //   }
-    // }
     const data = await this.$axios.$post('https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token', {
-      client_id: 'fde03693c9f701545b11',
-      client_secret: 'b94ae609b2335da5e52acace175d028e98652008',
+      client_id: '9821d20d1acf11e0c0f7',
+      client_secret: '456a2bec4ddf440d2b1f64094f6b394974a622ba',
       code: code
     }).catch(e => e)
-    // const data = await this.$axios.$post('https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token', {
-    //   client_id: 'fcb06a95dcdfb0c9c5eb',
-    //   client_secret: '293bbe1d692e81bdb78ce3c2a8bf81c81c1a16f5',
-    //   code: code
-    // }).catch(e => e)
     let obj = {}
     const arr2 = data.split("&");
     for(let i = 0; i < arr2.length; i++) {

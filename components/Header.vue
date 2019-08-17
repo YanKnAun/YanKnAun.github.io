@@ -82,8 +82,7 @@ export default {
       this.keyword = ''
     },
     loginWithGithub () {
-      location.href = 'https://github.com/login/oauth/authorize?client_id=fde03693c9f701545b11&redirect_uri=https://yanknaun.github.io&scope=public_repo'
-      // location.href = 'https://github.com/login/oauth/authorize?client_id=fcb06a95dcdfb0c9c5eb&redirect_uri=http://localhost:3000/&scope=public_repo'
+      location.href = 'https://github.com/login/oauth/authorize?client_id=9821d20d1acf11e0c0f7&redirect_uri=http://114.55.144.81:3000/&scope=public_repo'
     }
   }
 }
