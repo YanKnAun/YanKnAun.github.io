@@ -45,6 +45,10 @@ export default {
   devModules: [
   ],
   /*
+  ** srcDir
+  */
+  srcDir: 'src/',
+  /*
   ** Nuxt.js modules
   */
   modules: [
